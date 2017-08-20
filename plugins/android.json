@@ -1,0 +1,32 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "res/xml/config.xml": {
+            "/*": {
+                "<feature name=\"BackgroundServicePlugin\"><param name=\"android-package\" value=\"com.red_folder.phonegap.plugin.backgroundservice.BackgroundServicePlugin\" /></feature>": 1
+            }
+        },
+        "AndroidManifest.xml": {
+            "/manifest": {
+                "<uses-permission android:name=\"android.permission.RECEIVE_BOOT_COMPLETED\" />": 1
+            },
+            "/manifest/application": {
+                "<receiver android:name=\"com.red_folder.phonegap.plugin.backgroundservice.BootReceiver\"><intent-filter><action android:name=\"android.intent.action.BOOT_COMPLETED\" /></intent-filter></receiver>": 1,
+                "<service android:name=\"com.red_folder.phonegap.plugin.backgroundservice.sample.MyService\"><intent-filter><action android:name=\"com.red_folder.phonegap.plugin.backgroundservice.sample.MyService\" /></intent-filter></service>": 1
+            }
+        }
+    },
+    "installed_plugins": {
+        "com.red_folder.phonegap.plugin.backgroundservice.sample": {
+            "PACKAGE_NAME": "io.cordova.hellocordova"
+        }
+    },
+    "dependent_plugins": {
+        "com.red_folder.phonegap.plugin.backgroundservice": {
+            "PACKAGE_NAME": "io.cordova.hellocordova"
+        }
+    }
+}
